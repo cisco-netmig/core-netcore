@@ -1,0 +1,30 @@
+Template, Hostname, Platform, Command
+
+cisco_ios_show_ip_ospf_interface_brief.textfsm, .*, cisco_ios, sh[[ow]] ip ospf int[[erface]]
+cisco_ios_show_interfaces_description.textfsm, .*, cisco_ios, sh[[ow]] int[[erfaces]](?: (?:\S+))? des[[cription]]
+cisco_ios_show_interfaces_switchport.textfsm, .*, cisco_ios, sh[[ow]] int[[erfaces]](?: (?:\S+))? sw[[itchport]]
+cisco_ios_show_interfaces_status.textfsm, .*, cisco_ios, sh[[ow]] int[[erfaces]](?: (?:\S+))? st[[atus]]
+cisco_ios_show_mac-address-table.textfsm, .*, cisco_ios, sh[[ow]] mac[[-address-table]]
+cisco_ios_show_ip_bgp_neighbors.textfsm, .*, cisco_ios, sh[[ow]] ip bgp nei[[ghbors]]
+cisco_ios_show_lldp_neighbors.textfsm, .*, cisco_ios, sh[[ow]] lld[[p]] neig[[hbors]]
+cisco_ios_show_cdp_neighbors.textfsm, .*, cisco_ios, sh[[ow]] c[[dp]] neig[[hbors]]
+cisco_ios_show_ip_interface.textfsm, .*, cisco_ios, sh[[ow]] ip int[[erface]]
+cisco_ios_show_interfaces.textfsm, .*, cisco_ios, sh[[ow]] int[[erfaces]](?: (?:\S+))?
+cisco_ios_show_version.textfsm, .*, cisco_ios, sh[[ow]] ver[[sion]]
+cisco_ios_show_ip_arp.textfsm, .*, cisco_ios, sh[[ow]] i[[p]] a[[rp]]
+cisco_ios_show_vlan.textfsm, .*, cisco_ios, sh[[ow]] vlan
+
+
+cisco_nxos_show_ip_ospf_interface_brief.textfsm, .*, cisco_nxos, sh[[ow]] ip ospf int[[erface]] b[[rief]](?: vrf \S+)?\s*$
+cisco_nxos_show_interface_description.textfsm, .*, cisco_nxos, sh[[ow]] int[[erface]] desc[[ription]]
+cisco_nxos_show_interfaces_switchport.textfsm, .*, cisco_nxos, sh[[ow]] int[[erfaces]] sw[[itchport]]
+cisco_nxos_show_mac_address-table.textfsm, .*, cisco_nxos, sh[[ow]] m[[ac]] addr[[ess-table]]
+cisco_nxos_show_interface_status.textfsm, .*, cisco_nxos, sh[[ow]] int[[erface]] st[[atus]]
+cisco_nxos_show_ip_bgp_neighbors.textfsm, .*, cisco_nxos, sh[[ow]] ip bgp nei[[ghbors]]
+cisco_nxos_show_lldp_neighbors.textfsm, .*, cisco_nxos, sh[[ow]] ll[[dp]] nei[[ghbors]]
+cisco_nxos_show_cdp_neighbors.textfsm, .*, cisco_nxos, sh[[ow]] cd[[p]] neig[[hbors]]
+cisco_nxos_show_ip_interface.textfsm, .*, cisco_nxos, sh[[ow]] ip int[[erface]]
+cisco_nxos_show_interface.textfsm, .*, cisco_nxos, sh[[ow]] inte[[rface]]
+cisco_nxos_show_version.textfsm, .*, cisco_nxos, sh[[ow]] ver[[sion]]
+cisco_nxos_show_ip_arp.textfsm, .*, cisco_nxos, sh[[ow]] i[[p]] a[[rp]]
+cisco_nxos_show_vlan.textfsm, .*, cisco_nxos, sh[[ow]] vl[[an]]

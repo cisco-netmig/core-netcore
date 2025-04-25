@@ -1,6 +1,6 @@
-# NetCore
+# Netcore
 
-**NetCore** is a Python-based toolkit designed for network automation, analysis, and reporting.  
+**Netcore** is a Python-based toolkit designed for network automation, analysis, and reporting.  
 It provides a modular framework to connect to devices via SSH, run commands, parse output, and export structured data to Excel.
 
 ---

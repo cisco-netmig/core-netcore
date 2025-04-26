@@ -34,18 +34,42 @@ pip install .
 ## 🛠 Usage
 
 ```python
-from netcore import NetmikoDirect, AutoParseTextFSM, XLBW
+"""
+Example usage of the Netcore toolkit for network automation:
+- Connect to a network device via SSH (with optional proxy)
+- Send a command and auto-parse the output using TextFSM
+- Export structured data to an Excel file
+"""
 
-# Connect to device
-session = NetmikoDirect(hostname="10.1.1.1", username="admin", password="cisco")
+from netcore import NetmikoDirect, XLBW
 
-# Send command and auto-parse output
-parsed_output = session.sendCommand("show ip interface brief", autoParse=True)
+# Optional proxy (jump server) configuration
+proxy = {
+    "hostname": "PROXY_IP_ADDRESS",     # e.g., "192.168.100.1"
+    "username": "PROXY_USERNAME",       # e.g., "jumpuser"
+    "password": "PROXY_PASSWORD"        # e.g., "password123"
+}
 
-# Export to Excel
-wb = XLBW("output.xlsx")
-wb.dump(parsed_output)
-wb.close()
+# Connect to the target network device via SSH
+session = NetmikoDirect(
+    hostname="DEVICE_IP_ADDRESS",       # e.g., "10.0.1.13"
+    username="DEVICE_USERNAME",         # e.g., "admin"
+    password="DEVICE_PASSWORD",         # e.g., "admin123"
+    proxy=proxy                         # Optional; remove if not using proxy
+)
+
+# Send a command and automatically parse the output
+# 'key' defines the primary identifier for table columns (e.g., interface names)
+parsed_output = session.sendCommand(
+    "show interface status",
+    autoParse=True,
+    key="interface"
+)
+
+# Export the structured data to a formatted Excel file
+wb = XLBW("output.xlsx")                # Output Excel file name
+wb.dump(parsed_output)                 # Write parsed data
+wb.close()                             # Save and close the workbook
 ```
 
 ---

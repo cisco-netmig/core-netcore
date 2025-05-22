@@ -1,11 +1,11 @@
-# Netcore
+# Netcore (Python Toolkit)
 
 **Netcore** is a Python-based toolkit designed for network automation, analysis, and reporting.  
 It provides a modular framework to connect to devices via SSH, run commands, parse output, and export structured data to Excel.
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
 - 🔌 **Terminal Access**  
   Supports direct and proxy SSH access using **Netmiko** and **Paramiko**.
@@ -70,18 +70,6 @@ parsed_output = session.sendCommand(
 wb = XLBW("output.xlsx")                # Output Excel file name
 wb.dump(parsed_output)                 # Write parsed data
 wb.close()                             # Save and close the workbook
-```
-
----
-
-## 📁 Project Structure
-
-```
-netcore/
-├── parser.py           # Parsing logic using TextFSM
-├── terminal.py         # Terminal handlers for Netmiko, Paramiko
-├── xl.py               # Excel export logic
-├── ntc_templates/      # Included TextFSM templates
 ```
 
 ---

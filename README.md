@@ -24,7 +24,7 @@ It provides a modular framework to connect to devices via SSH, run commands, par
 ## 📦 Installation
 
 ```bash
-pip install git+https://wwwin-github.cisco.com/sanjeekr/netcore.git
+pip install git+https://wwwin-github.cisco.com/Netmig/netcore.git
 # or if packaged
 pip install .
 ```
@@ -77,3 +77,5 @@ wb.close()                             # Save and close the workbook
 ## 📄 License
 
 MIT License © 2024 Sanjeev Krishna
+
+---

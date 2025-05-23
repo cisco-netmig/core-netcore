@@ -1,7 +1,4 @@
-<p align="left">
-  <img src="./netcore/netcore.ico" alt="Netmig Logo" width="32" style="vertical-align:middle; margin-right:10px;">
-  <span style="font-size:2em; font-weight:bold;vertical-align:middle;">Netcore (Python Toolkit)</span>
-</p>
+# Netcore (Python Toolkit)
 
 **Netcore** is a Python-based toolkit designed for network automation, analysis, and reporting.  
 It provides a modular framework to connect to devices via SSH, run commands, parse output, and export structured data to Excel.

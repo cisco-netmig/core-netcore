@@ -1,27 +1,30 @@
-# Netcore (Python Toolkit)
+<p align="left">
+  <img src="./netcore/netcore.ico" alt="Netmig Logo" width="32" style="vertical-align:middle; margin-right:10px;">
+  <span style="font-size:2em; font-weight:bold;vertical-align:middle;">Netcore (Python Toolkit)</span>
+</p>
 
 **Netcore** is a Python-based toolkit designed for network automation, analysis, and reporting.  
 It provides a modular framework to connect to devices via SSH, run commands, parse output, and export structured data to Excel.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-- 🔌 **Terminal Access**  
+- **Terminal Access**  
   Supports direct and proxy SSH access using **Netmiko** and **Paramiko**.
 
-- 🧠 **Command Parsing with TextFSM**  
+- **Command Parsing with TextFSM**  
   Uses NTC templates and custom logic to parse raw command outputs into structured data.
 
-- 📊 **Excel Export**  
+- **Excel Export**  
   Automatically generate formatted Excel reports with support for custom styles and tables.
 
-- 🔍 **Device Type Auto-Detection**  
+- **Device Type Auto-Detection**  
   Automatically detects the device platform to apply the correct parsing templates.
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 pip install git+https://wwwin-github.cisco.com/Netmig/netcore.git
@@ -74,8 +77,8 @@ wb.close()                             # Save and close the workbook
 
 ---
 
-## 📄 License
+## License
 
-MIT License © 2024 Sanjeev Krishna
+MIT License © 2024 - 2025 Sanjeev Krishna
 
 ---

@@ -36,5 +36,5 @@ setup(
         'Intended Audience :: Network Automation Engineers',
         'Topic :: System :: Networking',
     ],
-    python_requires='>=3.10',
+    python_requires='>=3.7',
 )

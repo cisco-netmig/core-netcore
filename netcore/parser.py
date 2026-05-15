@@ -330,49 +330,45 @@ class AutoParseTextFSM:
 
         table = None
 
-        # Attempt parsing using local templates
-        if os.path.exists(local_template_dir) and os.path.exists(local_index_file):
-            table = CliTable(local_index_file, local_template_dir)
-            try:
+        # First try parsing with local templates
+        try:
+            if os.path.exists(local_template_dir) and os.path.exists(local_index_file):
+                table = CliTable(local_index_file, local_template_dir)
                 table.ParseCmd(self.raw_string, {"Command": self.cmd, "Platform": device_type})
-            except CliTableError:
-                # Fallback to NTC templates if local parsing fails
-                if os.path.exists(ntc_template_dir) and os.path.exists(ntc_index_file):
-                    table = CliTable(ntc_index_file, ntc_template_dir)
-                try:
-                    table.ParseCmd(self.raw_string, {"Command": self.cmd, "Platform": device_type})
-                except CliTableError as error:
-                    logging.debug(f"TextFSM Parsing failed: {error}")
-
-        if table:
-            # Parse the data into a structured format (list of dictionaries)
-            data_list = []
-            for row in table:
-                row_data = {}
-                for index, element in enumerate(row):
-                    row_data[table.header[index].lower()] = element
-                data_list.append(row_data)
-
-            # If a key is provided, return a dictionary keyed by that key
-            if self.key:
-                keyed_data = {}
-                for row in data_list:
-                    if self.key in row.keys():
-                        value = row[self.key]
-                        keyed_data[value] = {}
-                        for _key, _value in row.items():
-                            if _key != self.key:
-                                keyed_data[value][_key] = _value
-                    else:
-                        return data_list  # Return the entire list if no key matches
-                return keyed_data
             else:
-                return data_list  # Return the list if no key is specified
-        else:
-            # Return raw string if parsing fails
-            logging.error("Failed to parse the raw string using TextFSM templates.")
-            return self.raw_string
+                raise FileNotFoundError("Local template directory or index file not found")
+        except Exception:
+            # If local parsing fails, try NTC templates
+            try:
+                table = CliTable(ntc_index_file, ntc_template_dir)
+                table.ParseCmd(self.raw_string, {"Command": self.cmd, "Platform": device_type})
+            except Exception as ntc_error:
+                logging.error(f"Failed to parse command '{self.cmd}' with both local and NTC templates: {ntc_error}")
+                return self.raw_string
 
+        # Parse the data into a structured format (list of dictionaries)
+        data_list = []
+        for row in table:
+            row_data = {}
+            for index, element in enumerate(row):
+                row_data[table.header[index].lower()] = element
+            data_list.append(row_data)
+
+        # If a key is provided, return a dictionary keyed by that key
+        if self.key:
+            keyed_data = {}
+            for row in data_list:
+                if self.key in row.keys():
+                    value = row[self.key]
+                    keyed_data[value] = {}
+                    for _key, _value in row.items():
+                        if _key != self.key:
+                            keyed_data[value][_key] = _value
+                else:
+                    return data_list  # Return the entire list if no key matches
+            return keyed_data
+        else:
+            return data_list  # Return the list if no key is specified
 
 def get_config_section(header, config):
     """

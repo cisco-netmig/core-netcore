@@ -168,7 +168,8 @@ class NetmikoDirect(BaseConnection):
         self.set_terminal_width()
         self.disable_paging()
         self.secret = self.secret if self.secret else self.password
-        self.enable()
+        if "cisco" in self.device_type:
+            self.enable()
 
     def sendCommand(self, cmd, autoParse=False, key=None):
         """
